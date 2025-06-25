@@ -1,4 +1,8 @@
 <?php
+// Hata raporlama (geliştirme aşamasında)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
@@ -15,23 +19,57 @@ $settingsObj = new SiteSettings($db);
 
 $success = '';
 $error = '';
+$debug = '';
 
 // Ayarları kaydet
-if ($_POST) {
+if ($_POST && isset($_POST['submit'])) {
     try {
+        $updateCount = 0;
+        $errors = [];
+        
         foreach ($_POST as $key => $value) {
             if ($key !== 'submit') {
-                $settingsObj->updateSetting($key, trim($value));
+                try {
+                    $result = $settingsObj->updateSetting($key, trim($value));
+                    if ($result) {
+                        $updateCount++;
+                    }
+                } catch (Exception $e) {
+                    $errors[] = "Ayar güncellenemedi ($key): " . $e->getMessage();
+                }
             }
         }
-        $success = 'Ayarlar başarıyla güncellendi!';
+        
+        if (count($errors) > 0) {
+            $error = implode('<br>', $errors);
+        } else {
+            $success = "$updateCount ayar başarıyla güncellendi!";
+        }
+        
     } catch (Exception $e) {
-        $error = 'Bir hata oluştu: ' . $e->getMessage();
+        $error = 'Genel hata: ' . $e->getMessage();
+    }
+}
+
+// Varsayılan ayarları yükle (ilk kurulum için)
+if (isset($_GET['load_defaults'])) {
+    try {
+        $settingsObj->loadDefaultSettings();
+        $success = 'Varsayılan ayarlar yüklendi!';
+    } catch (Exception $e) {
+        $error = 'Varsayılan ayarlar yüklenemedi: ' . $e->getMessage();
     }
 }
 
 // Mevcut ayarları getir
 $settings = $settingsObj->getSettings();
+
+// Debug bilgisi (geliştirme aşamasında)
+if (isset($_GET['debug'])) {
+    $debug = "Toplam ayar sayısı: " . count($settings) . "<br>";
+    $debug .= "Database bağlantısı: " . ($db ? "✓ Başarılı" : "❌ Başarısız") . "<br>";
+    $debug .= "Post data: " . (empty($_POST) ? "Yok" : "Var (" . count($_POST) . " adet)");
+}
 ?>
 
 <!DOCTYPE html>
@@ -215,6 +253,14 @@ $settings = $settingsObj->getSettings();
             border: 1px solid #f5c6cb;
         }
         
+        .alert.debug {
+            background: #e2e3e5;
+            color: #383d41;
+            border: 1px solid #d6d8db;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -231,6 +277,22 @@ $settings = $settingsObj->getSettings();
         .btn:hover {
             background: #c82333;
         }
+        
+        .btn.secondary {
+            background: #6c757d;
+        }
+        
+        .btn.secondary:hover {
+            background: #5a6268;
+        }
+        
+        .action-buttons {
+            margin-bottom: 20px;
+        }
+        
+        .action-buttons .btn {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -240,7 +302,7 @@ $settings = $settingsObj->getSettings();
                 <h1><i class="fas fa-cog"></i> Site Ayarları</h1>
             </div>
             <div class="admin-user">
-                <span><i class="fas fa-user-circle"></i> Hoş geldin, <?= $_SESSION['admin_username'] ?></span>
+                <span><i class="fas fa-user-circle"></i> Hoş geldin, <?= htmlspecialchars($_SESSION['admin_username']) ?></span>
                 <a href="logout.php" class="btn">
                     <i class="fas fa-sign-out-alt"></i> Çıkış
                 </a>
@@ -260,6 +322,22 @@ $settings = $settingsObj->getSettings();
     
     <main class="admin-content">
         <h2 class="section-title">Site Ayarları</h2>
+        
+        <div class="action-buttons">
+            <a href="?load_defaults" class="btn secondary" onclick="return confirm('Varsayılan ayarları yüklemek istediğinizden emin misiniz?')">
+                <i class="fas fa-download"></i> Varsayılan Ayarları Yükle
+            </a>
+            <a href="?debug=1" class="btn secondary">
+                <i class="fas fa-bug"></i> Debug Bilgisi
+            </a>
+        </div>
+        
+        <?php if ($debug): ?>
+            <div class="alert debug">
+                <strong>Debug Bilgisi:</strong><br>
+                <?= $debug ?>
+            </div>
+        <?php endif; ?>
         
         <?php if ($success): ?>
             <div class="alert success">
@@ -383,7 +461,7 @@ $settings = $settingsObj->getSettings();
                 </div>
             </div>
             
-            <button type="submit" class="save-btn">
+            <button type="submit" name="submit" value="1" class="save-btn">
                 <i class="fas fa-save"></i> Ayarları Kaydet
             </button>
         </form>
