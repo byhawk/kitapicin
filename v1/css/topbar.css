@@ -1,0 +1,39 @@
+/* css/topbar.css */
+
+/* Üst Duyuru Çubuğu */
+.top-announcement {
+    background-color: var(--dark-bg); /* Koyu arkaplan */
+    color: var(--white-bg);
+    padding: 10px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.top-announcement-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.top-announcement-left i,
+.top-announcement-right i {
+    margin-right: 5px;
+}
+
+.top-announcement-right a {
+    color: var(--white-bg);
+    margin-left: 15px;
+    transition: color var(--transition-speed);
+}
+
+.top-announcement-right a:hover {
+    color: var(--accent-color);
+}
+
+.top-announcement-separator {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.5);
+}

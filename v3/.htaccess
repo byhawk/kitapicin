@@ -1,0 +1,22 @@
+/**
+ * .htaccess - Apache URL Rewriting
+ * 
+ * RewriteEngine On
+ * RewriteCond %{REQUEST_FILENAME} !-f
+ * RewriteCond %{REQUEST_FILENAME} !-d
+ * RewriteRule ^(.*)$ index.php [QSA,L]
+ * 
+ * # Security
+ * Options -Indexes
+ * 
+ * # Cache Control
+ * <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
+ *     ExpiresActive On
+ *     ExpiresDefault "access plus 1 month"
+ * </FilesMatch>
+ * 
+ * # Compression
+ * <IfModule mod_deflate.c>
+ *     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+ * </IfModule>
+ */

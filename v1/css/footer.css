@@ -1,0 +1,95 @@
+/* css/footer.css */
+
+/* WhatsApp Butonu */
+.whatsapp-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366; /* WhatsApp yeşili */
+    color: var(--white-bg);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.site-footer {
+    background-color: #222; /* Koyu arka plan */
+    color: var(--white-bg);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.site-footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-footer p {
+    font-size: 0.9em;
+    margin: 0;
+    flex-basis: 100%; /* Küçük ekranlarda tam genişlik */
+    order: 3; /* Telif hakkını en alta taşı */
+}
+
+.site-footer nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px; /* Altına alınca boşluk */
+    order: 1;
+}
+
+.site-footer nav ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1em;
+    transition: color var(--transition-speed);
+}
+
+.site-footer nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.site-footer .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px; /* Altına alınca boşluk */
+    justify-content: center;
+    flex-basis: 100%; /* Küçük ekranlarda tam genişlik */
+    order: 2;
+}
+
+.site-footer .social-icons a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--transition-speed);
+}
+
+.site-footer .social-icons a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-bg);
+}

@@ -1,0 +1,131 @@
+/* css/header.css */
+
+/* Header */
+.site-header-wrapper {
+    background-color: var(--white-bg);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Daha hafif gölge */
+    position: relative;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Küçük ekranlarda sarması için */
+}
+
+.logo img {
+    height: 60px; /* Logo boyutunu ayarla */
+    width: auto;
+    max-width: 200px;
+}
+
+.contact-info-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: auto; /* Ortaya itmek için */
+    margin-right: 20px;
+    color: var(--text-color);
+    font-size: 0.95em;
+}
+
+.contact-info-header p {
+    margin: 2px 0;
+}
+
+.contact-info-header i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.social-icons-header {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons-header a {
+    color: var(--text-color);
+    font-size: 1.2em;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed);
+}
+
+.social-icons-header a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-bg);
+    border-color: var(--primary-color);
+}
+
+/* Ana Navigasyon */
+.main-nav {
+    background-color: var(--primary-color);
+    margin-top: 20px;
+    border-radius: 8px; /* Varsayılan border-radius */
+    overflow: hidden; /* Hamburger menü kapanınca gizlemek için */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center; /* Menüyü ortalamak için */
+    align-items: center;
+    height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: var(--white-bg);
+    font-weight: 600;
+    padding: 10px 0;
+    display: block;
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--accent-color);
+}
+
+.hamburger {
+    display: none; /* Masaüstünde gizli */
+    font-size: 1.8em;
+    color: var(--white-bg);
+    cursor: pointer;
+}

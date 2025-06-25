@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Mavi Güneş Sahaf</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="top-announcement">
+        <div class="top-announcement-container">
+            <div class="top-announcement-left">
+                <i class="fas fa-map-marker-alt"></i> Ankara, Türkiye
+            </div>
+            <div class="top-announcement-right">
+                <a href="iletisim.html"><i class="fas fa-envelope"></i> İletişim</a>
+                <span class="top-announcement-separator">|</span>
+                <a href="tel:+905439286154"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
+                <span class="top-announcement-separator">|</span>
+                <a href="https://wa.me/905439286154" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container site-header-wrapper">
+        <header class="site-header">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/mavi-gunes-sahaf-logo.png" alt="Mavi Güneş Sahaf Logo">
+                    </a>
+                </div>
+                <div class="contact-info-header">
+                    <p><i class="fas fa-phone-alt"></i> 0543 928 6154</p>
+                    <p><i class="fas fa-envelope"></i> sahfamavigunes@gmail.com</p>
+                </div>
+                <div class="social-icons-header">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <div class="nav-container">
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i> </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html#hero">Anasayfa</a></li>
+                        <li><a href="index.html#services">Hizmetlerimiz</a></li>
+                        <li><a href="index.html#about">Hakkımızda</a></li>
+                        <li><a href="index.html#testimonials">Yorumlar</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <div class="container main-content-wrapper">
+        <main>
+            <section class="contact-form-section">
+                <h2>Bize Ulaşın</h2>
+                <form id="contactForm" action="send_mail.php" method="POST">
+                    <label for="name">Adınız Soyadınız:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">E-posta Adresiniz:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Telefon Numaranız:</label>
+                    <input type="tel" id="phone" name="phone">
+
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+
+                    <p id="form-messages" class="success-message" style="display: none;"></p>
+                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Mesajı Gönder</button>
+                </form>
+            </section>
+
+            <section class="contact-page-section">
+                <h2>Konumumuz ve İletişim Bilgileri</h2>
+                <div class="contact-info-grid">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.0494490333257!2d32.85974441539206!3d39.93336337942698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f0f0f0f0f0f%3A0x0f0f0f0f0f0f0f0f!2sAnkara%20Kalesi!5e0!3m2!1str!2str!4v1678901234567!5m2!1str!2str"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="address-info">
+                        <h3>Mavi Güneş Sahaf</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Örnek Sokak No: 123, Çankaya, Ankara, Türkiye</p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+905439286154">+90 543 928 61 54</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@mavigunessahaf.com">info@mavigunessahaf.com</a></p>
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905439286154" target="_blank">WhatsApp Destek</a></p>
+                        <p><i class="fas fa-clock"></i> Pazartesi - Cuma: 09:00 - 18:00</p>
+                        <p><i class="fas fa-clock"></i> Cumartesi: 10:00 - 16:00</p>
+                        <p><i class="fas fa-clock"></i> Pazar: Kapalı</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <a href="https://wa.me/905439286154" class="whatsapp-button" target="_blank" aria-label="WhatsApp ile iletişime geçin">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Mavi Güneş Sahaf. Tüm Hakları Saklıdır.</p>
+            <div class="footer-nav">
+                <a href="index.html#hero">Anasayfa</a>
+                <a href="index.html#about">Hakkımızda</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

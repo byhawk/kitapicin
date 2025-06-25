@@ -1,0 +1,126 @@
+/* css/base.css */
+
+/* Google Fonts (Daha profesyonel fontlar) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+    /* YENİ RENK PALETİ - Yeşil ve Mavi Karışımı */
+    --primary-color: #2D6B78;   /* Koyu Yeşilimsi Mavi (Ana renk) */
+    --secondary-color: #4B9CAE; /* Orta Yeşilimsi Mavi (İkincil renk) */
+    --accent-color: #F7BF4F;    /* Hardal Sarısı (Vurgu) */
+    --text-color: #333333;      /* Koyu Gri Metin */
+    --light-bg: #F4F7F6;        /* Açık Gri/Beyaz Arka Plan */
+    --white-bg: #FFFFFF;        /* Beyaz İçerik Kutuları */
+    --border-color: #DDDDDD;    /* Açık Gri Kenarlık */
+    --transition-speed: 0.4s;   /* Global geçiş hızı */
+
+    /* Ek Renkler (Hizmet Blokları için) */
+    --red-like-color: #E74C3C;  /* Kırmızı yerine koyu turuncu-kırmızı */
+    --blue-like-color: #3498DB; /* Mavi yerine canlı mavi */
+}
+
+/* Genel Ayarlar ve Sıfırlamalar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Daha modern bir font */
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--accent-color); /* Vurgu rengine geçiş */
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif; /* Başlıklar için daha okunaklı font */
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Kapsayıcı (Container) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Butonlar için genel stil */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--white-bg);
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white-bg);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: var(--white-bg);
+    border: 2px solid var(--secondary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-bg);
+}
+
+/* Scroll Reveal Animasyonları */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

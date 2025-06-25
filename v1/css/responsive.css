@@ -1,0 +1,255 @@
+/* css/responsive.css */
+
+/* Tablet ve küçük masaüstü ekranlar */
+@media (max-width: 992px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info-header {
+        margin-left: 0;
+        margin-top: 15px;
+        align-items: center;
+    }
+
+    .social-icons-header {
+        margin-top: 15px;
+    }
+
+    .main-nav-container {
+        justify-content: space-between; /* Hamburger menü ile linkler arasına boşluk */
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: none; /* Mobil menüde başlangıçta gizli */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px; /* Navigasyon çubuğunun altından başla */
+        left: 0;
+        padding: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-links.active {
+        display: flex; /* Aktif olduğunda göster */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .hamburger {
+        display: block; /* Mobil menüde göster */
+    }
+
+    .hero {
+        flex-direction: column-reverse; /* Mobil için resmi üste, içeriği alta al */
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .secondary-info-area {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .brand-logo-area {
+        margin-top: 30px;
+    }
+
+    .services-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-column {
+        max-width: 90%; /* Mobil genişlik */
+    }
+
+    .visual-services-section h2,
+    .about-section h2,
+    .testimonials h2,
+    .no-waste-books h2,
+    .contact-form-section h2 {
+        font-size: 2em;
+    }
+
+    .no-waste-books h2 {
+        font-size: 2.5em;
+    }
+
+    .no-waste-books p {
+        font-size: 1.1em;
+    }
+
+    .phone-number-display {
+        font-size: 2em;
+    }
+
+    .site-footer .container {
+        flex-direction: column;
+    }
+}
+
+/* Mobil cihazlar */
+@media (max-width: 768px) {
+    .top-announcement-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-announcement-right a {
+        margin: 0 8px;
+    }
+
+    .top-announcement-separator {
+        display: none; /* Mobil görünümde ayırıcıları gizle */
+    }
+
+    .hero-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .info-blocks {
+        grid-template-columns: 1fr; /* Mobil için tek sütun */
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr; /* Mobil için tek sütun */
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Mobil için tek sütun */
+    }
+
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Küçük mobil cihazlar */
+@media (max-width: 480px) {
+    .top-announcement-right {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .top-announcement-right a {
+        margin: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .contact-info-header p {
+        font-size: 0.85em;
+    }
+
+    .column-header h3 {
+        font-size: 1.5em;
+    }
+
+    .service-column ul li {
+        font-size: 1em;
+    }
+
+    .call-to-action-btn {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+
+    .visual-service-item-content h3 {
+        font-size: 1.4em;
+    }
+
+    .visual-service-item-content p {
+        font-size: 0.9em;
+    }
+
+    .about-section p {
+        font-size: 1em;
+    }
+
+    .testimonial-text {
+        font-size: 1em;
+    }
+
+    .testimonial-author .name {
+        font-size: 1em;
+    }
+
+    .no-waste-books h2 {
+        font-size: 2em;
+    }
+
+    .no-waste-books p {
+        font-size: 1em;
+    }
+
+    .phone-number-display {
+        font-size: 1.8em;
+    }
+
+    #contactForm label {
+        font-size: 1em;
+    }
+
+    #contactForm input,
+    #contactForm textarea,
+    #contactForm .submit-btn {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+}
